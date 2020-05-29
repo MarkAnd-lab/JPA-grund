@@ -2,11 +2,17 @@ package se.lexicon.mark.JPAgrund;
 
 
 import javax.persistence.Entity;
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.transaction.Transactional;
 import java.time.LocalDateTime;
 import java.util.Objects;
 
 @Entity
 public class TodoItem {
+
+    @PersistenceContext
+    private EntityManager entityManager;
 
     private String todoId;
     private String title;
@@ -22,12 +28,9 @@ public class TodoItem {
         this.deadline = deadline;
     }
 
+    @Transactional
     public String getTodoId() {
         return todoId;
-    }
-
-    public void setTodoId(String todoId) {
-        this.todoId = todoId;
     }
 
     public String getTitle() {
