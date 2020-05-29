@@ -7,7 +7,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class DaoTest {
+class AppUserDaoTest {
 
     AppUser testObject = null;
     int userId = 1;

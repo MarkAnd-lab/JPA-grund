@@ -7,12 +7,12 @@ import javax.persistence.PersistenceContext;
 import javax.transaction.Transactional;
 
 @Repository
-public class Dao {
+public class AppUserDao {
 
     @PersistenceContext
     private EntityManager entityManager;
 
-    public Dao(EntityManager entityManager) {
+    public AppUserDao(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 
