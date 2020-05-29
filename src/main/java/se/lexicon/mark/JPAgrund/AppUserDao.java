@@ -17,24 +17,26 @@ public class AppUserDao {
     }
 
     @Transactional
-    public AppUser findById(int id){
-       return entityManager.find(AppUser.class, id);
+    public AppUser findById(int id) {
+        return entityManager.find(AppUser.class, id);
     }
 
     @Transactional
-    public AppUser merge(AppUser appUser){
+    public AppUser merge(AppUser appUser) {
         return entityManager.merge(appUser);
     }
 
     @Transactional
-    public AppUser persist(AppUser appUser) throws IllegalAccessException  {
-        if(appUser== null) {throw new IllegalArgumentException("Can't persist AppUser appUser= "+ appUser);
-        }entityManager.persist(appUser);
+    public AppUser persist(AppUser appUser) throws IllegalAccessException {
+        if (appUser == null) {
+            throw new IllegalArgumentException("Can't persist AppUser appUser= " + appUser);
+        }
+        entityManager.persist(appUser);
         return appUser;
     }
 
     @Transactional
-    boolean delete(AppUser appuser){
+    boolean delete(AppUser appuser) {
         return true;
     }
 

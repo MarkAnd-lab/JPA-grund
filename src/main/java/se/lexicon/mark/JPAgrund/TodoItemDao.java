@@ -2,7 +2,9 @@ package se.lexicon.mark.JPAgrund;
 
 import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
 import javax.transaction.Transactional;
+import java.util.List;
 
 public class TodoItemDao {
     @PersistenceContext
@@ -33,4 +35,26 @@ public class TodoItemDao {
     boolean delete(TodoItem todoItem){
         return true;
     }
+    @Transactional
+    public List<TodoItem> findByTitle(String title) throws IllegalArgumentException {
+        if(title == null) {
+            throw new IllegalArgumentException("String title = " +  title);
+        }
+        Query query = entityManager.createQuery("SELECT s FROM TodoItem s WHERE s. title = ? 1 ");
+        query.setParameter(1, title);
+        return query.getResultList();
+    }
+
+    @Transactional
+    public List<TodoItem> findAll() {
+        Query query = entityManager.createQuery("SELECT s FROM TodoItem s");
+        return query.getResultList();
+    }
+
+    @Transactional
+    public List<TodoItem> findByDone() {
+        Query query = entityManager.createQuery("SELECT s FROM TodoItem s");
+        return query.getResultList();
+    }
+
 }
