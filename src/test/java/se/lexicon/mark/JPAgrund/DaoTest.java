@@ -9,7 +9,7 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class DaoTest {
 
-    AppUser object = null;
+    AppUser testObject = null;
     int userId = 1;
     String firstName = "Mark";
     String lastName = "Andersson";
@@ -20,7 +20,7 @@ class DaoTest {
 
     @BeforeEach
     void setUp(){
-        object = new AppUser(userId,firstName,lastName,email,birthDate,active,password);
+        testObject = new AppUser(userId,firstName,lastName,email,birthDate,active,password);
     }
 
     @Test
