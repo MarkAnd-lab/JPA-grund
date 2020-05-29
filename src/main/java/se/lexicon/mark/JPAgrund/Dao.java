@@ -16,7 +16,6 @@ public class Dao {
         this.entityManager = entityManager;
     }
 
-
     @Transactional
     public AppUser findById(int id){
        return entityManager.find(AppUser.class, id);
