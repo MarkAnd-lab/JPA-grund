@@ -78,12 +78,16 @@ public class AppUser {
         this.birthDate = birthDate;
     }
 
-    public boolean isActive() {
+    public boolean Active() {
         return active;
     }
 
-    public void setActive(boolean active) {
-        this.active = active;
+    public void toggleActive() {
+        if(active){
+            active = false;
+        }else{
+            active = true;
+        }
     }
 
     public String getPassword() {

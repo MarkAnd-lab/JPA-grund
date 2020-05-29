@@ -28,9 +28,12 @@ public class Dao {
     }
 
     @Transactional
-    public AppUser save(AppUser appUser){
-        return entityManager.merge(appUser);
-}
+    public AppUser persist(AppUser appUser) throws IllegalAccessException  {
+        if(appUser== null) {throw new IllegalArgumentException("Can't persist AppUser appUser= "+ appUser);
+        }entityManager.persist(appUser);
+        return appUser;
+    }
+
     @Transactional
     boolean delete(AppUser appuser){
         return true;
